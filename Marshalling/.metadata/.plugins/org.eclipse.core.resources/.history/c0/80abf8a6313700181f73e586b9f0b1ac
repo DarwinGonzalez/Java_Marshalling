@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://generated.jax2b.javajee.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://generated.jax2b.javajee.com" xmlns:intf="http://generated.jax2b.javajee.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://generated.jax2b.javajee.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://xml.apache.org/xml-soap"/>
+   <element name="getObject">
+    <complexType/>
+   </element>
+   <element name="getObjectResponse">
+    <complexType>
+     <sequence>
+      <element name="getObjectReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_xsd_anyType">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <element name="getId">
+    <complexType/>
+   </element>
+   <element name="getIdResponse">
+    <complexType>
+     <sequence>
+      <element name="getIdReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setId">
+    <complexType>
+     <sequence>
+      <element name="value" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setIdResponse">
+    <complexType/>
+   </element>
+   <element name="getSignatureValue">
+    <complexType/>
+   </element>
+   <element name="getSignatureValueResponse">
+    <complexType>
+     <sequence>
+      <element name="getSignatureValueReturn" type="impl:SignatureValueType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="SignatureValueType">
+    <sequence>
+     <element name="id" nillable="true" type="xsd:string"/>
+     <element name="value" nillable="true" type="xsd:base64Binary"/>
+    </sequence>
+   </complexType>
+   <element name="getKeyInfo">
+    <complexType/>
+   </element>
+   <element name="getKeyInfoResponse">
+    <complexType>
+     <sequence>
+      <element name="getKeyInfoReturn" type="impl:KeyInfoType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="KeyInfoType">
+    <sequence>
+     <element name="content" nillable="true" type="impl:ArrayOf_xsd_anyType"/>
+     <element name="id" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="getSignedInfo">
+    <complexType/>
+   </element>
+   <element name="getSignedInfoResponse">
+    <complexType>
+     <sequence>
+      <element name="getSignedInfoReturn" type="impl:SignedInfoType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="CanonicalizationMethodType">
+    <sequence>
+     <element name="algorithm" nillable="true" type="xsd:string"/>
+     <element name="content" nillable="true" type="impl:ArrayOf_xsd_anyType"/>
+    </sequence>
+   </complexType>
+   <complexType name="SignatureMethodType">
+    <sequence>
+     <element name="algorithm" nillable="true" type="xsd:string"/>
+     <element name="content" nillable="true" type="impl:ArrayOf_xsd_anyType"/>
+    </sequence>
+   </complexType>
+   <complexType name="SignedInfoType">
+    <sequence>
+     <element name="canonicalizationMethod" nillable="true" type="impl:CanonicalizationMethodType"/>
+     <element name="id" nillable="true" type="xsd:string"/>
+     <element name="reference" nillable="true" type="impl:ArrayOf_xsd_anyType"/>
+     <element name="signatureMethod" nillable="true" type="impl:SignatureMethodType"/>
+    </sequence>
+   </complexType>
+   <element name="setSignedInfo">
+    <complexType>
+     <sequence>
+      <element name="value" type="impl:SignedInfoType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setSignedInfoResponse">
+    <complexType/>
+   </element>
+   <element name="setKeyInfo">
+    <complexType>
+     <sequence>
+      <element name="value" type="impl:KeyInfoType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setKeyInfoResponse">
+    <complexType/>
+   </element>
+   <element name="setSignatureValue">
+    <complexType>
+     <sequence>
+      <element name="value" type="impl:SignatureValueType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setSignatureValueResponse">
+    <complexType/>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://xml.apache.org/xml-soap" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://generated.jax2b.javajee.com"/>
+   <complexType name="Vector">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="setIdResponse">
+
+      <wsdl:part element="impl:setIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setSignatureValueRequest">
+
+      <wsdl:part element="impl:setSignatureValue" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getKeyInfoResponse">
+
+      <wsdl:part element="impl:getKeyInfoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSignatureValueRequest">
+
+      <wsdl:part element="impl:getSignatureValue" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setSignedInfoRequest">
+
+      <wsdl:part element="impl:setSignedInfo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setKeyInfoResponse">
+
+      <wsdl:part element="impl:setKeyInfoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSignedInfoResponse">
+
+      <wsdl:part element="impl:getSignedInfoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getIdRequest">
+
+      <wsdl:part element="impl:getId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getKeyInfoRequest">
+
+      <wsdl:part element="impl:getKeyInfo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getIdResponse">
+
+      <wsdl:part element="impl:getIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setIdRequest">
+
+      <wsdl:part element="impl:setId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setSignedInfoResponse">
+
+      <wsdl:part element="impl:setSignedInfoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSignedInfoRequest">
+
+      <wsdl:part element="impl:getSignedInfo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setKeyInfoRequest">
+
+      <wsdl:part element="impl:setKeyInfo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getObjectRequest">
+
+      <wsdl:part element="impl:getObject" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setSignatureValueResponse">
+
+      <wsdl:part element="impl:setSignatureValueResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getObjectResponse">
+
+      <wsdl:part element="impl:getObjectResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSignatureValueResponse">
+
+      <wsdl:part element="impl:getSignatureValueResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SignatureType">
+
+      <wsdl:operation name="getObject">
+
+         <wsdl:input message="impl:getObjectRequest" name="getObjectRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getObjectResponse" name="getObjectResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getId">
+
+         <wsdl:input message="impl:getIdRequest" name="getIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getIdResponse" name="getIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setId">
+
+         <wsdl:input message="impl:setIdRequest" name="setIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setIdResponse" name="setIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSignatureValue">
+
+         <wsdl:input message="impl:getSignatureValueRequest" name="getSignatureValueRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getSignatureValueResponse" name="getSignatureValueResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getKeyInfo">
+
+         <wsdl:input message="impl:getKeyInfoRequest" name="getKeyInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getKeyInfoResponse" name="getKeyInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSignedInfo">
+
+         <wsdl:input message="impl:getSignedInfoRequest" name="getSignedInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getSignedInfoResponse" name="getSignedInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setSignedInfo">
+
+         <wsdl:input message="impl:setSignedInfoRequest" name="setSignedInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setSignedInfoResponse" name="setSignedInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setKeyInfo">
+
+         <wsdl:input message="impl:setKeyInfoRequest" name="setKeyInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setKeyInfoResponse" name="setKeyInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setSignatureValue">
+
+         <wsdl:input message="impl:setSignatureValueRequest" name="setSignatureValueRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setSignatureValueResponse" name="setSignatureValueResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SignatureTypeSoapBinding" type="impl:SignatureType">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getObject">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getObjectRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getObjectResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSignatureValue">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSignatureValueRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSignatureValueResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getKeyInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getKeyInfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getKeyInfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSignedInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSignedInfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSignedInfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setSignedInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setSignedInfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setSignedInfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setKeyInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setKeyInfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setKeyInfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setSignatureValue">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setSignatureValueRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setSignatureValueResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SignatureTypeService">
+
+      <wsdl:port binding="impl:SignatureTypeSoapBinding" name="SignatureType">
+
+         <wsdlsoap:address location="http://localhost:8080/FacturaMarshallingFace/services/SignatureType"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from SignatureTypeService WSDL service -->
+
+  <service name="SignatureType" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://generated.jax2b.javajee.com"/>
+      <parameter name="wsdlServiceElement" value="SignatureTypeService"/>
+      <parameter name="schemaQualified" value="http://xml.apache.org/xml-soap,http://generated.jax2b.javajee.com"/>
+      <parameter name="wsdlServicePort" value="SignatureType"/>
+      <parameter name="className" value="com.javajee.jax2b.generated.SignatureType"/>
+      <parameter name="wsdlPortType" value="SignatureType"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://generated.jax2b.javajee.com" xmlns:retNS="http://generated.jax2b.javajee.com" xmlns:rtns="http://generated.jax2b.javajee.com" xmlns:tns="http://generated.jax2b.javajee.com" name="getObject" qname="operNS:getObject" returnQName="retNS:getObjectReturn" returnType="rtns:ArrayOf_xsd_anyType" returnItemQName="tns:item" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://generated.jax2b.javajee.com" xmlns:retNS="http://generated.jax2b.javajee.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getId" qname="operNS:getId" returnQName="retNS:getIdReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://generated.jax2b.javajee.com" name="setId" qname="operNS:setId" soapAction="">
+        <parameter xmlns:pns="http://generated.jax2b.javajee.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:value" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://generated.jax2b.javajee.com" xmlns:retNS="http://generated.jax2b.javajee.com" xmlns:rtns="http://generated.jax2b.javajee.com" name="getSignatureValue" qname="operNS:getSignatureValue" returnQName="retNS:getSignatureValueReturn" returnType="rtns:SignatureValueType" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://generated.jax2b.javajee.com" xmlns:retNS="http://generated.jax2b.javajee.com" xmlns:rtns="http://generated.jax2b.javajee.com" name="getKeyInfo" qname="operNS:getKeyInfo" returnQName="retNS:getKeyInfoReturn" returnType="rtns:KeyInfoType" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://generated.jax2b.javajee.com" xmlns:retNS="http://generated.jax2b.javajee.com" xmlns:rtns="http://generated.jax2b.javajee.com" name="getSignedInfo" qname="operNS:getSignedInfo" returnQName="retNS:getSignedInfoReturn" returnType="rtns:SignedInfoType" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://generated.jax2b.javajee.com" name="setSignedInfo" qname="operNS:setSignedInfo" soapAction="">
+        <parameter xmlns:pns="http://generated.jax2b.javajee.com" xmlns:tns="http://generated.jax2b.javajee.com" qname="pns:value" type="tns:SignedInfoType"/>
+      </operation>
+      <operation xmlns:operNS="http://generated.jax2b.javajee.com" name="setKeyInfo" qname="operNS:setKeyInfo" soapAction="">
+        <parameter xmlns:pns="http://generated.jax2b.javajee.com" xmlns:tns="http://generated.jax2b.javajee.com" qname="pns:value" type="tns:KeyInfoType"/>
+      </operation>
+      <operation xmlns:operNS="http://generated.jax2b.javajee.com" name="setSignatureValue" qname="operNS:setSignatureValue" soapAction="">
+        <parameter xmlns:pns="http://generated.jax2b.javajee.com" xmlns:tns="http://generated.jax2b.javajee.com" qname="pns:value" type="tns:SignatureValueType"/>
+      </operation>
+      <parameter name="allowedMethods" value="getSignatureValue getObject getSignedInfo setSignedInfo setKeyInfo setId getId getKeyInfo setSignatureValue"/>
+
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:KeyInfoType" type="java:com.javajee.jax2b.generated.KeyInfoType" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <arrayMapping xmlns:ns="http://generated.jax2b.javajee.com" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema" qname="ns:ArrayOf_xsd_anyType" type="java:java.lang.Object[]" innerType="cmp-ns:anyType" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:SignedInfoType" type="java:com.javajee.jax2b.generated.SignedInfoType" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:&gt;setKeyInfo" type="java:com.javajee.jax2b.generated.SetKeyInfo" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:&gt;getSignedInfo" type="java:com.javajee.jax2b.generated.GetSignedInfo" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:&gt;getKeyInfo" type="java:com.javajee.jax2b.generated.GetKeyInfo" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:&gt;getKeyInfoResponse" type="java:com.javajee.jax2b.generated.GetKeyInfoResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:&gt;setSignedInfoResponse" type="java:com.javajee.jax2b.generated.SetSignedInfoResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:SignatureValueType" type="java:com.javajee.jax2b.generated.SignatureValueType" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:CanonicalizationMethodType" type="java:com.javajee.jax2b.generated.CanonicalizationMethodType" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:&gt;getId" type="java:com.javajee.jax2b.generated.GetId" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:&gt;setId" type="java:com.javajee.jax2b.generated.SetId" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:&gt;getSignedInfoResponse" type="java:com.javajee.jax2b.generated.GetSignedInfoResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:&gt;setIdResponse" type="java:com.javajee.jax2b.generated.SetIdResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:&gt;setKeyInfoResponse" type="java:com.javajee.jax2b.generated.SetKeyInfoResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:&gt;getSignatureValue" type="java:com.javajee.jax2b.generated.GetSignatureValue" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:&gt;setSignedInfo" type="java:com.javajee.jax2b.generated.SetSignedInfo" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:SignatureMethodType" type="java:com.javajee.jax2b.generated.SignatureMethodType" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:&gt;getObjectResponse" type="java:com.javajee.jax2b.generated.GetObjectResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:&gt;setSignatureValueResponse" type="java:com.javajee.jax2b.generated.SetSignatureValueResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:&gt;getIdResponse" type="java:com.javajee.jax2b.generated.GetIdResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:&gt;getObject" type="java:com.javajee.jax2b.generated.GetObject" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:&gt;getSignatureValueResponse" type="java:com.javajee.jax2b.generated.GetSignatureValueResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://generated.jax2b.javajee.com" qname="ns:&gt;setSignatureValue" type="java:com.javajee.jax2b.generated.SetSignatureValue" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

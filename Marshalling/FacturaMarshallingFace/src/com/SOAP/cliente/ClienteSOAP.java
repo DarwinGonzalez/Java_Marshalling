@@ -1,0 +1,5 @@
+package com.SOAP.cliente;
+
+public class ClienteSOAP {
+
+}

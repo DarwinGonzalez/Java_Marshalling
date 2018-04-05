@@ -1,0 +1,26 @@
+package com.importar.certificado;
+
+import java.io.InputStream;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+
+public class ImportarCertficado {
+
+	private static KeyStore getKeyStore(InputStream keyStoreIS, String keyStorePassword, String keyStoreType) {
+		KeyStore keyStore = null;
+		
+		try {
+			keyStore = KeyStore.getInstance(keyStoreType);
+			keyStore.load(keyStoreIS, keyStorePassword.toCharArray());
+			keyStoreIS.close();
+			return keyStore;
+		} catch (KeyStoreException | NoSuchAlgorithmException | CertificateException | 
+				IOException | NullPointerException e) {
+			getLogger().error(e.getClass().getSimpleName() + " occurred while trying to load keystore", e);
+		} 
+		
+		return null;
+	}
+
+}

@@ -1,0 +1,5 @@
+127.0.0.1 - - [03/Apr/2018:12:22:09 +0100] "GET / HTTP/1.1" 404 994
+127.0.0.1 - - [03/Apr/2018:12:22:09 +0100] "POST /FacturaMarshallingFace/services/AdminService HTTP/1.0" 200 291
+127.0.0.1 - - [03/Apr/2018:12:22:09 +0100] "POST /FacturaMarshallingFace/services/AdminService HTTP/1.0" 200 3228
+127.0.0.1 - - [03/Apr/2018:12:24:09 +0100] "POST /FacturaMarshallingFace/services/SignatureType HTTP/1.1" 500 635
+127.0.0.1 - - [03/Apr/2018:12:46:22 +0100] "POST /FacturaMarshallingFace/services/SignatureType HTTP/1.1" 500 635

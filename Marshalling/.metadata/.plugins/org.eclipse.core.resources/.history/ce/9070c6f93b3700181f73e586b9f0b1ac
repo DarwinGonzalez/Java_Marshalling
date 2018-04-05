@@ -1,0 +1,133 @@
+package com.aplicacion.certificado;
+
+import com.javajee.jax2b.generated.*;
+import com.validacion.xml.*;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.DocumentBuilder;
+import java.io.File;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.Node;
+import org.w3c.dom.Element;
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.GeneralSecurityException;
+import java.security.KeyStore;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateFactory;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class Application {
+
+	public static void main(String[] args) {
+		
+		//Aplicación java a la que se le pasa la ruta del xml, la ruta del certificado, y la ruta del servidor web
+		
+		//Argumentos que se le pasan RUTAXML, RUTACERTIFICADO, RUTASERVIDOR
+		
+		//Comprobar que esta que la estructura esta bien respecto al archivo xsd		
+		
+		//Lectura del fichero XML externo
+		
+		 try {
+			 	
+				File fXmlFile = new File("C:\\Users\\sdatos02\\Desktop\\Face\\factura_ejemplo_31.xml");
+				DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+				DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+				Document doc = dBuilder.parse(fXmlFile);
+				
+				doc.getDocumentElement().normalize();
+				
+				System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+				
+				NodeList nodeList = doc.getElementsByTagName("ds:Signature");
+				
+				String xsdPath = "C:\\Users\\sdatos02\\Desktop\\Marshalling\\FacturaMarshallingFace\\Facturaev32.xsd";
+				String xmlPath = "C:\\Users\\sdatos02\\Desktop\\Marshalling\\FacturaMarshallingFace\\Facturaev32.xsd";
+				
+				System.out.println("Es "+ ValidacionXML.validate(xsdPath, xmlPath));
+				System.out.println("Es "+ ValidacionXML.validateXMLSchema(xsdPath, xmlPath));
+		 } 
+		 
+		 catch (Exception e) {
+				e.printStackTrace();
+		 }
+		
+		 
+		 //Importar y almacenar certificado en JAVA
+		 
+		 //Peticiones SOAP
+		 
+	}
+
+}
+
+
+
+
+
+
+
+
+/*
+KeyStore trustStore  = KeyStore.getInstance(KeyStore.getDefaultType());
+trustStore.load(null);//Make an empty store
+InputStream fis = "C:\\Users\\sdatos02\\Desktop\\Face\\certificado";
+BufferedInputStream bis = new BufferedInputStream(fis);
+
+CertificateFactory cf = CertificateFactory.getInstance("X.509");
+
+while (bis.available() > 0) {
+    Certificate cert = cf.generateCertificate(bis);
+    trustStore.setCertificateEntry("fiddler"+bis.available(), cert);
+}
+
+*/
+
+/*
+String certificado = " ";
+String signatureValue = " ";
+String modulus = " ";
+
+for (int temp = 0; temp < nodeList.getLength(); temp++) {
+	Node nNode = nodeList.item(temp);
+    System.out.println("\nCurrent Element :" + nNode.getNodeName());
+    
+    if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+           Element eElement = (Element) nNode;
+
+           signatureValue = eElement
+                   .getElementsByTagName("ds:SignatureValue")
+                   .item(0)
+                   .getTextContent();
+           
+           certificado = eElement
+                   .getElementsByTagName("ds:X509Certificate")
+                   .item(0)
+                   .getTextContent();
+           
+           modulus = eElement
+                   .getElementsByTagName("ds:Modulus")
+                   .item(0)
+                   .getTextContent();
+           
+           eElement.getElementsByTagName("ds:Modulus").item(0).setTextContent("Hola soy el modulo");
+           
+           System.out.println("Modulus : " 
+                   + eElement
+                   .getElementsByTagName("ds:Modulus")
+                   .item(0)
+                   .getTextContent());   
+
+        }
+
+}
+
+System.out.println("Certificado es : \n" + certificado);
+System.out.println("Valor de firma es \n" + signatureValue);
+System.out.println("Valor del modulo es:\n" + modulus);
+*/
