@@ -1,2 +1,2 @@
-# Java_Marshalling
-Proyecto prácticas de empresa
+# Aplicación Web-Services Facturación FACe 
+Proyecto prácticas de empresa para "Sistemas de Datos".
