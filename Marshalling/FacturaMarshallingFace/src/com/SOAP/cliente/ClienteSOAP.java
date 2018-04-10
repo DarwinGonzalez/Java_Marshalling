@@ -1,10 +1,14 @@
 package com.SOAP.cliente;
 
+import java.io.InputStream;
+
 import javax.xml.soap.*;
+
+import com.sun.org.apache.xml.internal.utils.QName;
 
 public class ClienteSOAP {
 	  
-	public static void createSoapEnvelope(SOAPMessage soapMessage) throws SOAPException {
+	public static void createSoapEnvelope(SOAPMessage soapMessage, String XMLtext) throws SOAPException {
 	        SOAPPart soapPart = soapMessage.getSOAPPart();
 
 	        String myNamespace = "webservice.se-face.redsara.es";
@@ -12,8 +16,16 @@ public class ClienteSOAP {
 
 	        // SOAP Envelope
 	        SOAPEnvelope envelope = soapPart.getEnvelope();
-	        envelope.addNamespaceDeclaration(myNamespace, myNamespaceURI);
+	        
+	        //SOAP Header
+	        SOAPHeader header = envelope.getHeader();
+	        header.addTextNode("Header");
+	    	SOAPElement security = header.addHeaderElement(envelope.createName("Security","", "wsse"));
+	    	//security = security.addChildElement(envelope.createName("BinarySecurityToken", "", "wsse"));
+	    	
 
+	        envelope.addNamespaceDeclaration(myNamespace, myNamespaceURI);
+	        
 	            /*
 	            Constructed SOAP Request Message:
 	            <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:myNamespace="http://www.webserviceX.NET">
@@ -29,21 +41,22 @@ public class ClienteSOAP {
 	        String xmlPath = "C:\\Users\\sdatos02\\Desktop\\Marshalling\\FacturaMarshallingFace\\Facturaev32.xml";
 	        
 	        // SOAP Body
-	        SOAPBody soapBody = envelope.getBody();
+	        SOAPBody soapBody = envelope.getBody(); 
 	        SOAPElement soapBodyElem = soapBody.addChildElement("enviarFactura", myNamespace);
-	        SOAPElement soap = soapBodyElem.addChildElement("enviarid",myNamespace);
-	    
+	        SOAPElement soap = soapBodyElem.addChildElement("facturaXML",myNamespace);
+	        soap.addTextNode(XMLtext);
+	        
 
 	 }
 	
-    public static void callSoapWebService(String soapEndpointUrl, String soapAction) {
+    public static void callSoapWebService(String soapEndpointUrl, String soapAction, String XMLtext) {
         try {
             // Create SOAP Connection
             SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
             SOAPConnection soapConnection = soapConnectionFactory.createConnection();
 
             // Send SOAP Message to SOAP Server
-            SOAPMessage soapResponse = soapConnection.call(createSOAPRequest(soapAction), soapEndpointUrl);
+            SOAPMessage soapResponse = soapConnection.call(createSOAPRequest(soapAction, XMLtext), soapEndpointUrl);
 
             // Print the SOAP Response
             System.out.println("Response SOAP Message:");
@@ -57,14 +70,14 @@ public class ClienteSOAP {
         }
     }
     
-    public static SOAPMessage createSOAPRequest(String soapAction) throws Exception {
+    public static SOAPMessage createSOAPRequest(String soapAction, String XMLtext) throws Exception {
         MessageFactory messageFactory = MessageFactory.newInstance();
         SOAPMessage soapMessage = messageFactory.createMessage();
+        
+        createSoapEnvelope(soapMessage, XMLtext);
 
-        createSoapEnvelope(soapMessage);
-
-        MimeHeaders headers = soapMessage.getMimeHeaders();
-        headers.addHeader("SOAPAction", soapAction);
+        //MimeHeaders headers = soapMessage.getMimeHeaders();
+        //headers.addHeader("SOAPAction", soapAction);
 
         soapMessage.saveChanges();
 
@@ -75,5 +88,6 @@ public class ClienteSOAP {
 
         return soapMessage;
     }
+    
     
 }
