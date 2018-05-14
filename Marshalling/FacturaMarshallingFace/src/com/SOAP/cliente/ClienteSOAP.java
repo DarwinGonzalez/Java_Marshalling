@@ -7,7 +7,8 @@ import javax.xml.soap.*;
 import com.sun.org.apache.xml.internal.utils.QName;
 
 public class ClienteSOAP {
-	  
+	
+	//Función utilizada para la creación del paquete o sobre SOAP
 	public static void createSoapEnvelope(SOAPMessage soapMessage, String XMLtext) throws SOAPException {
 	        SOAPPart soapPart = soapMessage.getSOAPPart();
 
@@ -18,11 +19,9 @@ public class ClienteSOAP {
 	        SOAPEnvelope envelope = soapPart.getEnvelope();
 	        
 	        //SOAP Header
-	        SOAPHeader header = envelope.getHeader();
-	        header.addTextNode("Header");
-	    	SOAPElement security = header.addHeaderElement(envelope.createName("Security","", "wsse"));
-	    	//security = security.addChildElement(envelope.createName("BinarySecurityToken", "", "wsse"));
-	    	
+	        SOAPHeader soapHeader = envelope.getHeader();
+	        SOAPHeaderElement headerElement = soapHeader.addHeaderElement(envelope.createName(
+	        "Security", "wsse", "http://schemas.xmlsoap.org/soap/security/2000-12"));
 
 	        envelope.addNamespaceDeclaration(myNamespace, myNamespaceURI);
 	        
@@ -37,7 +36,7 @@ public class ClienteSOAP {
 	                </SOAP-ENV:Body>
 	            </SOAP-ENV:Envelope>
 	            */
-	        
+	        // http://www.java2s.com/Tutorial/Java/0410__Web-Services-SOA/SignSOAPmessage.htm
 	        String xmlPath = "C:\\Users\\sdatos02\\Desktop\\Marshalling\\FacturaMarshallingFace\\Facturaev32.xml";
 	        
 	        // SOAP Body
@@ -49,6 +48,7 @@ public class ClienteSOAP {
 
 	 }
 	
+	//Función que llama al servicio web que se le pasa por parámetros
     public static void callSoapWebService(String soapEndpointUrl, String soapAction, String XMLtext) {
         try {
             // Create SOAP Connection
@@ -70,6 +70,7 @@ public class ClienteSOAP {
         }
     }
     
+    //Función que crea la petición SOAP llamando a la creación del paquete o sobre
     public static SOAPMessage createSOAPRequest(String soapAction, String XMLtext) throws Exception {
         MessageFactory messageFactory = MessageFactory.newInstance();
         SOAPMessage soapMessage = messageFactory.createMessage();

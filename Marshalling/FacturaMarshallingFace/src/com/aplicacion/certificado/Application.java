@@ -44,13 +44,13 @@ public class Application {
 				org.w3c.dom.Document doc = dBuilder.parse(fXmlFile);
 				
 				String XMLtext = ConverseXML.converseXMLtoString(doc);
-				System.out.println(XMLtext);
+				//System.out.println(XMLtext);
 				
 				InputStream is = new ByteArrayInputStream(XMLtext.getBytes());
 				
 				//Validar la estructura del XML respecto al XSD
 				
-				System.out.println("Resultado validación del XML con el XSD es:  " + ValidacionXML.responseValidate(ValidacionXML.validateXMLSchema(xsdPath, xmlPath)));
+				System.out.println("\nResultado validación del XML con el XSD es:  " + ValidacionXML.responseValidate(ValidacionXML.validateXMLSchema(xsdPath, xmlPath)) + "\n");
 				
 				//Peticiones SOAP
 				String soapEndpointUrl = "https://se-face-webservice.redsara.es/facturasspp";
@@ -68,4 +68,3 @@ public class Application {
 	}
 
 }
-
