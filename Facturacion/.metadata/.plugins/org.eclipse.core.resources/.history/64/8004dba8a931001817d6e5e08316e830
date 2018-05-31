@@ -1,0 +1,8 @@
+package facturacionFace;
+
+public class FacturaFaceImpl {
+
+		//private static FacturaThirdParty thirdPartyItems;
+		//private static FacturaBatch batchItems;
+		//private static FacturaFactoryAssignmentData factoryAssignmentDataItems;
+}

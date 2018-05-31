@@ -1,0 +1,38 @@
+package facturacionFace;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.DocumentBuilder;
+import java.io.File;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+
+public class FacturaFaceImpl {
+
+	public static void main(String[] args) {
+	//Argumentos que se le pasan RUTAXML, RUTACERTIFICADO, RUTASERVIDOR
+	
+	
+	//Lectura del fichero XML externo
+	 try {
+
+			File fXmlFile = new File("C:\\Users\\sdatos02\\Desktop\\Face\\Facturaev31.xml");
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(fXmlFile);
+			
+			doc.getDocumentElement().normalize();
+
+			System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+					
+			NodeList nList = doc.getElementsByTagName("FileHeader");
+	 
+	 } 
+	 
+	 catch (Exception e) {
+			e.printStackTrace();
+	 }
+	
+	 //Importar y almacenar ceritficado en JAVA
+	 //.......
+	}
+}

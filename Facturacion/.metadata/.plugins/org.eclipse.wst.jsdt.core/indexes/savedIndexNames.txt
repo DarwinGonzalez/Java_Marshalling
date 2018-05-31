@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\sdatos02\Desktop\Facturacion\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1870301600.index
+4180214400.index
+911391568.index
+26069236.index
+1274694871.index
+3255828450.index
